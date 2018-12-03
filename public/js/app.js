@@ -1,3 +1,4 @@
+    var pointsList = new Array();
 window.onload = async function() {
     const {
         Scene,
@@ -9,7 +10,7 @@ window.onload = async function() {
         viewport: ['auto', 'auto'],
         resolution: [724, 201]
     });
-    var pointsList = new Array();
+
     // await scene.preload([
     //    'img/body_s.png'
     //  ]);
@@ -36,6 +37,10 @@ window.onload = async function() {
                 });
                 sprite1.on('click', function(e) {
                     layer.remove(sprite1);
+                pointsList.splice(pointsList.findIndex(function(element){
+                return (element.x == this.xy[0] && element.y == this.xy[1]) ;
+                } ,sprite1),1)
+                    
                 })
                 //sprite1.scale(.05,.05);
                 console.log(sprite1);
@@ -59,6 +64,9 @@ window.onload = async function() {
             });
             sprite1.on('click', function(e) {
                 layer.remove(sprite1);
+                pointsList.splice(pointsList.findIndex(function(element){
+                return (element.x == this.xy[0] && element.y == this.xy[1]) ;
+                } ,sprite1),1)
             })
             pointsList.push({
                     "x": (item.x ),
