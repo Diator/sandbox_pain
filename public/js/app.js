@@ -8,17 +8,20 @@ window.onload = function() {
         
         var options = { layer:layer1, size:[1300,1300]};
         var sprite = scene.Sprite("img/body_s.png", options);
+        scene.loadImages(['img/x.png'])
         //sprite.scale(.1);
-        sprite.move(1, 1);
+        sprite.move(0, 0);
         sprite.update();
         scene.dom.addEventListener('click', function(e) {
             console.log(e)
 
-            // let options1 = { layer:layer1, size:[10,10], x:1,y:1};
-            // let sprite1 = scene.Sprite("img/x.png");
-            scene.loadImages(['img/x.png'])
-            sprite1.move(e.x,e.y)
-            sprite1.
+             let options1 = { layer:layer1,  x:1,y:1};
+            // 
+            
+            let sprite1 = scene.Sprite("img/x.png",options1);
+            sprite1.move(e.layerX-5,e.layerY-5);
+            sprite1.scale(.1,.1);
+            console.log( sprite1);
             sprite1.update();
         }, true);
 
